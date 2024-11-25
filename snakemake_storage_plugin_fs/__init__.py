@@ -4,9 +4,11 @@ import shutil
 import subprocess
 from typing import Any, Iterable, List, Optional
 from urllib.parse import urlparse
+from dataclasses import dataclass
 
 import sysrsync
 
+from snakemake_interface_storage_plugins.settings import StorageProviderSettingsBase
 from snakemake_interface_common.exceptions import WorkflowError
 from snakemake_interface_storage_plugins.storage_provider import (
     StorageProviderBase,
@@ -29,6 +31,10 @@ from snakemake_interface_storage_plugins.io import (
 from snakemake_interface_common.utils import lutime
 
 
+@dataclass
+class StorageProviderSettings(StorageProviderSettingsBase):
+    pass
+ 
 # Required:
 # Implementation of your storage provider
 # This class can be empty as the one below.
